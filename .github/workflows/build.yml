@@ -1,0 +1,20 @@
+name: Build iOS App
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+ build:
+    name: Build with Swift Package Manager
+    runs-on: macos-26 # Uses the modern macOS runner image
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Build App
+        run: |
+          swift build
